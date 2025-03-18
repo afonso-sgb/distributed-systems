@@ -1,0 +1,10 @@
+isos\tutorial\isyvector\cesvector\servector\IVector.class
+isos\tutorial\isyvector\cesvector\servector\WriteResponse.class
+isos\tutorial\isyvector\cesvector\servector\Read.class
+isos\tutorial\isyvector\cesvector\servector\ObjectFactory.class
+isos\tutorial\isyvector\cesvector\servector\package-info.class
+isos\tutorial\isyvector\cesvector\servector\ReadResponse.class
+isos\tutorial\isyvector\cesvector\servector\InvariantCheckResponse.class
+isos\tutorial\isyvector\cesvector\servector\Write.class
+isos\tutorial\isyvector\cesvector\servector\InvariantCheck.class
+isos\tutorial\isyvector\cesvector\servector\VectorService.class
