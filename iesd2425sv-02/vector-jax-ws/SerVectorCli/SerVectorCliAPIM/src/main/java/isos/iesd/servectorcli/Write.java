@@ -1,5 +1,5 @@
 
-package isos.iesd.transactionmanager;
+package isos.iesd.servectorcli;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -7,16 +7,17 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for read complex type</p>.
+ * <p>Java class for write complex type</p>.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.</p>
  * 
  * <pre>{@code
- * <complexType name="read">
+ * <complexType name="write">
  *   <complexContent>
  *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       <sequence>
  *         <element name="arg0" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         <element name="arg1" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       </sequence>
  *     </restriction>
  *   </complexContent>
@@ -26,12 +27,14 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "read", propOrder = {
-    "arg0"
+@XmlType(name = "write", propOrder = {
+    "arg0",
+    "arg1"
 })
-public class Read {
+public class Write {
 
     protected int arg0;
+    protected int arg1;
 
     /**
      * Gets the value of the arg0 property.
@@ -47,6 +50,22 @@ public class Read {
      */
     public void setArg0(int value) {
         this.arg0 = value;
+    }
+
+    /**
+     * Gets the value of the arg1 property.
+     * 
+     */
+    public int getArg1() {
+        return arg1;
+    }
+
+    /**
+     * Sets the value of the arg1 property.
+     * 
+     */
+    public void setArg1(int value) {
+        this.arg1 = value;
     }
 
 }

@@ -1,5 +1,5 @@
 
-package isos.iesd.transactionmanager;
+package isos.iesd.servectorcli;
 
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;

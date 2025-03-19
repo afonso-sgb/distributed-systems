@@ -81,7 +81,7 @@
                             </wsdlUrls>
 
                             <packageName>
-                                isos.iesd.transactionmanager</packageName>
+                                isos.iesd.servectorcli</packageName>
                             <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
                         </configuration>
                     </execution>

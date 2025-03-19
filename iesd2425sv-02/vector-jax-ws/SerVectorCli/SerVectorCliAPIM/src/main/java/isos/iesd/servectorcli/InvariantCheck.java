@@ -1,5 +1,5 @@
 
-package isos.iesd.transactionmanager;
+package isos.iesd.servectorcli;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;

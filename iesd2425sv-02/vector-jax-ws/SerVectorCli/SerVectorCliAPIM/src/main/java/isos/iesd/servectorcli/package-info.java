@@ -1,2 +1,2 @@
 @jakarta.xml.bind.annotation.XmlSchema(namespace = "http://isos.iesd.servectorserver")
-package isos.iesd.transactionmanager;
+package isos.iesd.servectorcli;

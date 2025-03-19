@@ -1,5 +1,5 @@
 
-package isos.iesd.transactionmanager;
+package isos.iesd.servectorcli;
 
 import javax.xml.namespace.QName;
 import jakarta.xml.bind.JAXBElement;
@@ -30,6 +30,9 @@ public class ObjectFactory {
     private static final QName _ReadResponse_QNAME = new QName("http://isos.iesd.servectorserver", "readResponse");
     private static final QName _Write_QNAME = new QName("http://isos.iesd.servectorserver", "write");
     private static final QName _WriteResponse_QNAME = new QName("http://isos.iesd.servectorserver", "writeResponse");
+
+    private static final QName _CanExecuteTransaction_QNAME = new QName("http://isos.iesd.transactionmanager", "canExecuteTransaction");
+    private static final QName _CanExecuteTransactionResponse_QNAME = new QName("http://isos.iesd.transactionmanager", "canExecuteTransactionResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: isos.iesd.servector
@@ -97,6 +100,27 @@ public class ObjectFactory {
     public WriteResponse createWriteResponse() {
         return new WriteResponse();
     }
+
+    /**
+     * Create an instance of {@link CanExecuteTransaction }
+     *
+     * @return
+     *     the new instance of {@link CanExecuteTransaction }
+     */
+    public CanExecuteTransaction createCanExecuteTransaction() {
+        return new CanExecuteTransaction();
+    }
+
+    /**
+     * Create an instance of {@link CanExecuteTransactionResponse }
+     *
+     * @return
+     *     the new instance of {@link CanExecuteTransactionResponse }
+     */
+    public CanExecuteTransactionResponse createCanExecuteTransactionResponse() {
+        return new CanExecuteTransactionResponse();
+    }
+
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link InvariantCheck }{@code >}
@@ -174,6 +198,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://isos.iesd.servectorserver", name = "writeResponse")
     public JAXBElement<WriteResponse> createWriteResponse(WriteResponse value) {
         return new JAXBElement<>(_WriteResponse_QNAME, WriteResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CanExecuteTransaction }{@code >}
+     *
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CanExecuteTransaction }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://isos.iesd.transactionmanager", name = "canExecuteTransaction")
+    public JAXBElement<CanExecuteTransaction> createCanExecuteTransaction(CanExecuteTransaction value) {
+        return new JAXBElement<>(_CanExecuteTransaction_QNAME, CanExecuteTransaction.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CanExecuteTransactionResponse }{@code >}
+     *
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CanExecuteTransactionResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://isos.iesd.transactionmanager", name = "canExecuteTransactionResponse")
+    public JAXBElement<CanExecuteTransactionResponse> createCanExecuteTransactionResponse(CanExecuteTransactionResponse value) {
+        return new JAXBElement<>(_CanExecuteTransactionResponse_QNAME, CanExecuteTransactionResponse.class, null, value);
     }
 
 }

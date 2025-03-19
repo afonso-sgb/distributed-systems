@@ -1,5 +1,5 @@
 
-package isos.iesd.transactionmanager;
+package isos.iesd.servectorcli;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,20 +17,20 @@ import jakarta.xml.ws.WebServiceFeature;
  * Generated source version: 3.0
  * 
  */
-@WebServiceClient(name = "VectorService", targetNamespace = "http://servector.iesd.isos/", wsdlLocation = "http://localhost:2060/Vector?wsdl")
+@WebServiceClient(name = "VectorService", targetNamespace = "http://servector.iesd.isos/", wsdlLocation = "http://localhost:2060/TransactionManager?wsdl")
 public class VectorService
     extends Service
 {
 
     private static final URL VECTORSERVICE_WSDL_LOCATION;
     private static final WebServiceException VECTORSERVICE_EXCEPTION;
-    private static final QName VECTORSERVICE_QNAME = new QName("http://servector.iesd.isos/", "VectorService");
+    private static final QName VECTORSERVICE_QNAME = new QName("http://isos.iesd.transactionmanager", "TransactionManagerService");
 
     static {
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:2060/Vector?wsdl");
+            url = new URL("http://localhost:2061/TransactionManager?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
@@ -84,8 +84,30 @@ public class VectorService
         return super.getPort(new QName("http://servector.iesd.isos/", "VectorPort"), IVector.class, features);
     }
 
+
+    /**
+     * Função para chamar o serviço de TransactionManager
+     *
+     * @return ITransactionManager
+     */
+    @WebEndpoint(name = "TransactionManagerPort")
+    public ITransactionManager getTransactionManagerPort() {
+        return super.getPort(new QName("http://isos.iesd.transactionmanager", "TransactionManagerPort"), ITransactionManager.class);
+    }
+
+    /**
+     * Função para chamar o serviço de TransactionManager com WebServiceFeatures
+     *
+     * @param features
+     * @return ITransactionManager
+     */
+    @WebEndpoint(name = "TransactionManagerPort")
+    public ITransactionManager getTransactionManagerPort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://isos.iesd.transactionmanager", "TransactionManagerPort"), ITransactionManager.class, features);
+    }
+
     private static URL __getWsdlLocation() {
-        if (VECTORSERVICE_EXCEPTION!= null) {
+        if (VECTORSERVICE_EXCEPTION != null) {
             throw VECTORSERVICE_EXCEPTION;
         }
         return VECTORSERVICE_WSDL_LOCATION;

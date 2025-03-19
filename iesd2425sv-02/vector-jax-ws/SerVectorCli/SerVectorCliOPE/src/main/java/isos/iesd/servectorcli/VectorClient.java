@@ -1,9 +1,6 @@
 package isos.iesd.servectorcli;
 
-import isos.iesd.transactionmanager.IVector;
-import isos.iesd.transactionmanager.VectorService;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import isos.iesd.servectorcli.ITransactionManager;
 
 /**
  * IESD - Distributed Coordination - Vector service example
@@ -15,12 +12,20 @@ public class VectorClient {
 
         // Register with ISystem0
         System.out.println("VectorClient()... validate access to SerVector...");
-        new VectorClient().invokeVerctorServices();
+        new VectorClient().invokeTransactionManagerService();
     }
 
-    public int invokeVerctorServices() {
+    public int invokeTransactionManagerService() {
 
-        int v, res = 0;
+        int idx = 3;
+        int indice1 = 2;
+        int indice2 = 3;
+
+        VectorService vectorService = new VectorService();
+        ITransactionManager iTransactionManagerPort = vectorService.getTransactionManagerPort();
+        iTransactionManagerPort.canExecuteTransaction(idx, indice1, indice2);
+
+        /*int v, res = 0;
         int x = 50;
 
         try {
@@ -44,6 +49,9 @@ public class VectorClient {
         } catch (InterruptedException ex) {
             Logger.getLogger(VectorClient.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+         */
+
         return 0;
     }
 

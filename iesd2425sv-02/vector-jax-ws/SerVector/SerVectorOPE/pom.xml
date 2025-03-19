@@ -18,7 +18,7 @@
     <properties>
         <module.type>SERVICE.OPE ::</module.type>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <SerVectorMainClass>isos.iesd.transactionmanager.SiteServer</SerVectorMainClass>
+        <SerVectorMainClass>isos.iesd.servector.SiteServer</SerVectorMainClass>
     </properties>
 
     <dependencies>
