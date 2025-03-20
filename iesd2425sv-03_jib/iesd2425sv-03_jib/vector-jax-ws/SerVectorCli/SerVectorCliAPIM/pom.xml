@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+  
+    <parent>
+        <groupId>org.mdeos.isos</groupId>
+        <artifactId>SerVectorCli</artifactId>
+        <version>0.1.0</version>
+    </parent>
+  
+    <groupId>org.mdeos.isos.servectorcli</groupId>
+    <artifactId>SerVectorCliAPIM</artifactId>
+    <name>${module.type} SerVectorCliAPIM</name>
+  
+    <properties>
+        <module.type>SERVICE.APIM ::</module.type>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+  
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <maxmem>256M</maxmem>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>${jaxws-maven-plugin}</version>
+                <executions>
+                    <execution>
+                        <id>wsimport VectorService</id>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Alternative less adaptive to changes of Vector interface
+                           <wsdlLocation>${basedir}/src/main/resources/jaxws/Vector.wsdl</wsdlLocation>
+                            -->
+               
+                            <!-- execute java -jar target\SerVectorOPE-0.1.0-jar-with-dependencies.jar 
+                            from "iesd2324sv\ISyVector\CesVector\SerVector\SerVectorOPE" -->
+                            <wsdlUrls>
+                                <wsdlUrl>http://localhost:2060/Vector?wsdl</wsdlUrl>
+                            </wsdlUrls>
+
+                            <packageName>
+                                isos.iesd.servector</packageName>
+                            <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
