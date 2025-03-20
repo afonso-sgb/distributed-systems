@@ -1,3 +1,4 @@
+/*
 package isos.iesd.servectorcli;
 
 import jakarta.xml.bind.annotation.XmlElement;
@@ -38,3 +39,4 @@ public class CanExecuteTransaction {
         this.indice2 = indice2;
     }
 }
+ */

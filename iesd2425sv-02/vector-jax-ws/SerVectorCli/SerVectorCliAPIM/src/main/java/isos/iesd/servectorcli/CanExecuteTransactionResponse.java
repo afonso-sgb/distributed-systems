@@ -1,3 +1,4 @@
+/*
 package isos.iesd.servectorcli;
 
 import jakarta.xml.bind.annotation.XmlElement;
@@ -17,3 +18,4 @@ public class CanExecuteTransactionResponse {
         this.result = result;
     }
 }
+ */

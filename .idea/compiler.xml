@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="TransactionManagerOPE" />
+        <module name="SerVectorOPE" />
+        <module name="SerVectorCliAPIM" />
+        <module name="TransactionManagerAPIM" />
+        <module name="SerVectorOPE (1) (org.mdeos.isos.servector)" />
+        <module name="SerVectorCliAPIM (1) (org.mdeos.isos.servectorcli)" />
+        <module name="SerVectorCliOPE" />
+        <module name="SerVectorAPIM" />
+        <module name="SerVectorAPIM (1) (org.mdeos.isos.servector)" />
+        <module name="SerVectorCliOPE (1) (org.mdeos.isos.servectorcli)" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

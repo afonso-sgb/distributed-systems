@@ -107,9 +107,11 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link CanExecuteTransaction }
      */
+    /*
     public CanExecuteTransaction createCanExecuteTransaction() {
+
         return new CanExecuteTransaction();
-    }
+    }*/
 
     /**
      * Create an instance of {@link CanExecuteTransactionResponse }
@@ -117,9 +119,12 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link CanExecuteTransactionResponse }
      */
+    /*
     public CanExecuteTransactionResponse createCanExecuteTransactionResponse() {
         return new CanExecuteTransactionResponse();
     }
+
+     */
 
 
     /**
@@ -200,6 +205,7 @@ public class ObjectFactory {
         return new JAXBElement<>(_WriteResponse_QNAME, WriteResponse.class, null, value);
     }
 
+    /*
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CanExecuteTransaction }{@code >}
      *
@@ -207,12 +213,12 @@ public class ObjectFactory {
      *     Java instance representing xml element's value.
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link CanExecuteTransaction }{@code >}
-     */
+
     @XmlElementDecl(namespace = "http://isos.iesd.transactionmanager", name = "canExecuteTransaction")
     public JAXBElement<CanExecuteTransaction> createCanExecuteTransaction(CanExecuteTransaction value) {
         return new JAXBElement<>(_CanExecuteTransaction_QNAME, CanExecuteTransaction.class, null, value);
     }
-
+/*
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CanExecuteTransactionResponse }{@code >}
      *
@@ -220,10 +226,10 @@ public class ObjectFactory {
      *     Java instance representing xml element's value.
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link CanExecuteTransactionResponse }{@code >}
-     */
+
     @XmlElementDecl(namespace = "http://isos.iesd.transactionmanager", name = "canExecuteTransactionResponse")
     public JAXBElement<CanExecuteTransactionResponse> createCanExecuteTransactionResponse(CanExecuteTransactionResponse value) {
         return new JAXBElement<>(_CanExecuteTransactionResponse_QNAME, CanExecuteTransactionResponse.class, null, value);
     }
-
+*/
 }

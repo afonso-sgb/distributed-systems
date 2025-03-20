@@ -1,3 +1,4 @@
+/*
 package isos.iesd.transactionmanager;
 
 import jakarta.jws.WebMethod;
@@ -13,3 +14,4 @@ public interface ITransactionManager {
     boolean canExecuteTransaction(int idx, int indice1, int indice2);
 
 }
+*/

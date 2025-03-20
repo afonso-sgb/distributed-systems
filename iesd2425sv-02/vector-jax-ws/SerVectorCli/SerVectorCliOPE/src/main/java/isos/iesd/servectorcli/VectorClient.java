@@ -1,6 +1,5 @@
 package isos.iesd.servectorcli;
 
-import isos.iesd.servectorcli.ITransactionManager;
 
 /**
  * IESD - Distributed Coordination - Vector service example
@@ -21,9 +20,9 @@ public class VectorClient {
         int indice1 = 2;
         int indice2 = 3;
 
-        VectorService vectorService = new VectorService();
-        ITransactionManager iTransactionManagerPort = vectorService.getTransactionManagerPort();
-        iTransactionManagerPort.canExecuteTransaction(idx, indice1, indice2);
+        TransactionManagerService transactionManager = new TransactionManagerService();
+        TransactionManager port = transactionManager.getTransactionManagerPort();
+        port.canExecuteTransaction(idx, indice1, indice2);
 
         /*int v, res = 0;
         int x = 50;

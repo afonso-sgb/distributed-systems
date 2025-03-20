@@ -1,3 +1,4 @@
+/*
 package isos.iesd.servectorcli;
 
 import jakarta.jws.WebMethod;
@@ -15,14 +16,14 @@ import jakarta.xml.ws.ResponseWrapper;
 })
 public interface ITransactionManager {
 
-    /**
+
      *
      * @param idx
      * @param indice1
      * @param indice2
      * @return
      *     returns boolean
-     */
+
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "canExecuteTransaction", targetNamespace = "http://isos.iesd.transactionmanager", className = "isos.iesd.transactionmanager.CanExecuteTransaction")
@@ -38,3 +39,4 @@ public interface ITransactionManager {
             @WebParam(name = "indice2", targetNamespace = "")
             int indice2);
 }
+*/

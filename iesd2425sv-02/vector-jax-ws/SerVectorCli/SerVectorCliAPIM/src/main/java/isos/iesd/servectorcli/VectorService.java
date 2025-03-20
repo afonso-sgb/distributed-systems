@@ -90,21 +90,27 @@ public class VectorService
      *
      * @return ITransactionManager
      */
+    /*
     @WebEndpoint(name = "TransactionManagerPort")
     public ITransactionManager getTransactionManagerPort() {
         return super.getPort(new QName("http://isos.iesd.transactionmanager", "TransactionManagerPort"), ITransactionManager.class);
     }
 
+     */
+
     /**
      * Função para chamar o serviço de TransactionManager com WebServiceFeatures
      *
-     * @param features
+     * @param
      * @return ITransactionManager
      */
+    /*
     @WebEndpoint(name = "TransactionManagerPort")
     public ITransactionManager getTransactionManagerPort(WebServiceFeature... features) {
         return super.getPort(new QName("http://isos.iesd.transactionmanager", "TransactionManagerPort"), ITransactionManager.class, features);
     }
+
+     */
 
     private static URL __getWsdlLocation() {
         if (VECTORSERVICE_EXCEPTION != null) {

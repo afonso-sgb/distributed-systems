@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVector/SerVectorAPIM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVector/SerVectorAPIM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVector/SerVectorOPE/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVector/SerVectorOPE/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVector/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVector/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVectorCli/SerVectorCliAPIM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVectorCli/SerVectorCliAPIM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVectorCli/SerVectorCliOPE/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVectorCli/SerVectorCliOPE/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVectorCli/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/SerVectorCli/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/TransactionManager/TransactionManagerAPIM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/TransactionManager/TransactionManagerAPIM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/TransactionManager/TransactionManagerOPE/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/TransactionManager/TransactionManagerOPE/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/TransactionManager/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/TransactionManager/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

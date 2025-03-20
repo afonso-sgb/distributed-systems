@@ -16,9 +16,10 @@ public class SiteServer {
 
         // Publish to ISystem0 the ISyVector/CesVector/SerVector registry meta-data
         //  Endpoint ep = Endpoint.create(new Vector());
-        
-        Endpoint ep = Endpoint.create(new TransactionManager());
+        String URL = "http://" + HOSTNAME + ":" + PORT + "/TransactionManager";
+
         System.out.println("Starting SiteServer...");
-        ep.publish("http://" + HOSTNAME + ":" + PORT + "/TransactionManager");
+        Endpoint.publish(URL, new TransactionManager());
+        System.out.println("Server is published at: " + URL);
     }
 }
