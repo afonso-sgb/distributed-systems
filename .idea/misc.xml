@@ -8,6 +8,9 @@
         <option value="$PROJECT_DIR$/iesd2425sv-01/SerVectorCli/pom.xml" />
         <option value="$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/pom.xml" />
         <option value="$PROJECT_DIR$/iesd2425_tp1/iesd2425_tp1/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425sv-04-zk/iesd2425sv-04-zk/zookeeper/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2424_tp1/TM/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2424_tp1/Client/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

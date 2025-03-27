@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.tp1</groupId>
+    <artifactId>iesd2425_tp1</artifactId>
+    <packaging>pom</packaging>
+    <name>${module.type} iesd2425_tp1</name>
+    <version>0.1.0</version>
+
+    <properties>
+        <module.type>_ROOT ::</module.type>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>TM</module>
+        <module>Client</module>
+    </modules>
+</project>

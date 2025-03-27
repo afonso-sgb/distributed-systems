@@ -44,7 +44,7 @@ public class ZkSimpleClient1 implements Watcher {
             
             content = _zkClient.getData(znodePath, true, stat);
             System.out.println("The content of znode: " + znodePath + " is " + new String(content));
-            _zkClient.setData(znodePath, "Ol· Mundo...".getBytes(), 0);
+            _zkClient.setData(znodePath, "Ol√° Mundo...".getBytes(), 0);
             content = _zkClient.getData(znodePath, true, stat);
             System.out.println("After changed znode: " + znodePath + " is " + new String(content));
             

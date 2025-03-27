@@ -6,16 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="TransactionManagerOPE" />
+        <module name="ClientAPIM" />
         <module name="SerVectorOPE" />
         <module name="SerVectorCliAPIM" />
+        <module name="ser-zook-cli-ope" />
+        <module name="TMOPE" />
+        <module name="SerVectorCliOPE" />
+        <module name="ClientOPE" />
+        <module name="SerVectorCliOPE (1) (org.mdeos.isos.servectorcli)" />
+        <module name="ser-zook-svr-doe" />
+        <module name="ser-zook-cli-doe" />
+        <module name="TransactionManagerOPE" />
+        <module name="ser-zook-svr-ope" />
         <module name="TransactionManagerAPIM" />
         <module name="SerVectorOPE (1) (org.mdeos.isos.servector)" />
         <module name="SerVectorCliAPIM (1) (org.mdeos.isos.servectorcli)" />
-        <module name="SerVectorCliOPE" />
         <module name="SerVectorAPIM" />
         <module name="SerVectorAPIM (1) (org.mdeos.isos.servector)" />
-        <module name="SerVectorCliOPE (1) (org.mdeos.isos.servectorcli)" />
+        <module name="ser-zook-cli-apim" />
+        <module name="TMAPIM" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -14,7 +14,7 @@ public class EmbeddedZkServer {
         int clientPort = 2181;
         int numConnections = 5000;
         int tickTime = 2000;
-        String dataDirectory = "/tmp/zookeeper"; // System.getProperty("java.io.tmpdir");
+        String dataDirectory = "D:\\tmp\\zookeeper"; // System.getProperty("java.io.tmpdir");
         System.out.println("dataDirectory = " + dataDirectory);
         //System.setProperty("zookeeper.admin.enableServer", "false");
 
