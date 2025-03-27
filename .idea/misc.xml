@@ -7,7 +7,13 @@
         <option value="$PROJECT_DIR$/iesd2425sv-01/SerVector/pom.xml" />
         <option value="$PROJECT_DIR$/iesd2425sv-01/SerVectorCli/pom.xml" />
         <option value="$PROJECT_DIR$/iesd2425sv-02/vector-jax-ws/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425_tp1/iesd2425_tp1/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/iesd2425_tp1/iesd2425_tp1/pom.xml" />
+      </set>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>

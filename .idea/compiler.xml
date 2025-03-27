@@ -18,5 +18,8 @@
         <module name="SerVectorCliOPE (1) (org.mdeos.isos.servectorcli)" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="iesd2425_tp1" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

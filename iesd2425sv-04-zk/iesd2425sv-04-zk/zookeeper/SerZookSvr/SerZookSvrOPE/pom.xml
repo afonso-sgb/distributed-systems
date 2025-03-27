@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.mdeos.isos.zookeeper</groupId>
+        <artifactId>ser-zook-svr</artifactId>
+        <version>0.1.0</version>
+    </parent>
+
+    <groupId>org.mdeos.isos.zookeeper.ser-zook-svr</groupId>
+    <artifactId>ser-zook-svr-ope</artifactId>
+    <name>${module.type} ser-zook-svr-ope</name>
+
+    <properties>
+        <module.type>OPE ::</module.type>
+        
+        <SerZookSvrMainClass>iesd.zk.server.EmbeddedZkServer</SerZookSvrMainClass>
+    </properties>
+
+    <dependencies>
+ 
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>${zookeeper}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>surefire-junit5</artifactId>
+            <version>5.0.0-ALPHA</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <maxmem>256M</maxmem>
+                </configuration>
+            </plugin>
+            <!-- To use the plugin goals in your POM or parent POM -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin}</version>
+            </plugin>
+
+            <!-- to run with 'java -jar target/<name>-with-dependencies.jar' -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>
+                                        ${SerZookSvrMainClass}
+                                    </mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!-- ren with 'mvn exec:java' -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin}</version>
+                <configuration>
+                    <mainClass>${SerVectorMainClass}</mainClass>
+                </configuration>
+            </plugin>
+            
+            <!-- Added to generate programatically an OCI container image -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>${jib-maven-plugin}</version>
+                <configuration>
+                    <to>
+                        <image>localhost/servector-oci-jib</image>
+                    </to>
+                </configuration>
+            </plugin>
+        </plugins>    
+    </build>
+
+</project>
