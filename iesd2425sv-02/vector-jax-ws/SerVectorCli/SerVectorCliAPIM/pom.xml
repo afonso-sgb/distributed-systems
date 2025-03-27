@@ -78,6 +78,7 @@
                             from "iesd2324sv\ISyVector\CesVector\SerVector\SerVectorOPE" -->
                             <wsdlUrls>
                                 <wsdlUrl>http://localhost:2060/Vector?wsdl</wsdlUrl>
+                                <wsdlUrl>http://localhost:20601/TransactionManager?wsdl</wsdlUrl>
                             </wsdlUrls>
 
                             <packageName>

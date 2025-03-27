@@ -85,33 +85,6 @@ public class VectorService
     }
 
 
-    /**
-     * Função para chamar o serviço de TransactionManager
-     *
-     * @return ITransactionManager
-     */
-    /*
-    @WebEndpoint(name = "TransactionManagerPort")
-    public ITransactionManager getTransactionManagerPort() {
-        return super.getPort(new QName("http://isos.iesd.transactionmanager", "TransactionManagerPort"), ITransactionManager.class);
-    }
-
-     */
-
-    /**
-     * Função para chamar o serviço de TransactionManager com WebServiceFeatures
-     *
-     * @param
-     * @return ITransactionManager
-     */
-    /*
-    @WebEndpoint(name = "TransactionManagerPort")
-    public ITransactionManager getTransactionManagerPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://isos.iesd.transactionmanager", "TransactionManagerPort"), ITransactionManager.class, features);
-    }
-
-     */
-
     private static URL __getWsdlLocation() {
         if (VECTORSERVICE_EXCEPTION != null) {
             throw VECTORSERVICE_EXCEPTION;

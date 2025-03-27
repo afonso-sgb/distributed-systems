@@ -31,9 +31,6 @@ public class ObjectFactory {
     private static final QName _Write_QNAME = new QName("http://isos.iesd.servectorserver", "write");
     private static final QName _WriteResponse_QNAME = new QName("http://isos.iesd.servectorserver", "writeResponse");
 
-    private static final QName _CanExecuteTransaction_QNAME = new QName("http://isos.iesd.transactionmanager", "canExecuteTransaction");
-    private static final QName _CanExecuteTransactionResponse_QNAME = new QName("http://isos.iesd.transactionmanager", "canExecuteTransactionResponse");
-
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: isos.iesd.servector
      * 
@@ -205,31 +202,4 @@ public class ObjectFactory {
         return new JAXBElement<>(_WriteResponse_QNAME, WriteResponse.class, null, value);
     }
 
-    /*
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CanExecuteTransaction }{@code >}
-     *
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CanExecuteTransaction }{@code >}
-
-    @XmlElementDecl(namespace = "http://isos.iesd.transactionmanager", name = "canExecuteTransaction")
-    public JAXBElement<CanExecuteTransaction> createCanExecuteTransaction(CanExecuteTransaction value) {
-        return new JAXBElement<>(_CanExecuteTransaction_QNAME, CanExecuteTransaction.class, null, value);
-    }
-/*
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CanExecuteTransactionResponse }{@code >}
-     *
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CanExecuteTransactionResponse }{@code >}
-
-    @XmlElementDecl(namespace = "http://isos.iesd.transactionmanager", name = "canExecuteTransactionResponse")
-    public JAXBElement<CanExecuteTransactionResponse> createCanExecuteTransactionResponse(CanExecuteTransactionResponse value) {
-        return new JAXBElement<>(_CanExecuteTransactionResponse_QNAME, CanExecuteTransactionResponse.class, null, value);
-    }
-*/
 }
