@@ -1,8 +1,6 @@
 package tm;
 
 import jakarta.xml.ws.Endpoint;
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 
 public class TMSiteServer {
     static final String HOSTNAME = "localhost";
