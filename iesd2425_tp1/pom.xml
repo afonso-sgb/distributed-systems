@@ -19,5 +19,8 @@
     <modules>
         <module>TM</module>
         <module>Client</module>
+        <module>ServiceVector</module>
+        <module>ServiceVector/ServiceVectorAPIM</module>
+        <module>ServiceVector/ServiceVectorOPE</module>
     </modules>
 </project>

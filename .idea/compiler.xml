@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ClientAPIM" />
+        <module name="ServiceVectorOPE" />
         <module name="SerVectorOPE" />
         <module name="SerVectorCliAPIM" />
         <module name="ser-zook-cli-ope" />
@@ -18,6 +19,7 @@
         <module name="ser-zook-cli-doe" />
         <module name="TransactionManagerOPE" />
         <module name="ser-zook-svr-ope" />
+        <module name="ServiceVectorAPIM" />
         <module name="TransactionManagerAPIM" />
         <module name="SerVectorOPE (1) (org.mdeos.isos.servector)" />
         <module name="SerVectorCliAPIM (1) (org.mdeos.isos.servectorcli)" />
@@ -28,7 +30,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="iesd2425_tp1" target="1.5" />
+      <module name="SerVectorAPIM (1) (org.tp1.SerVector.SerVectorAPIM)" target="21" />
+      <module name="SerVectorOPE (1) (org.tp1.SerVector.SerVectorOPE)" target="11" />
+      <module name="TM (1)" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

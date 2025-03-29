@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.tp1.tm</groupId>
-        <artifactId>TM</artifactId>
+        <groupId>org.tp1.servicevector</groupId>
+        <artifactId>ServiceVector</artifactId>
         <version>0.1.0</version>
     </parent>
 
-    <groupId>org.tp1.tm.tmope</groupId>
-    <artifactId>TMOPE</artifactId>
-    <name>${module.type} TMOPE</name>
+    <groupId>org.tp1.servicevector.servicevectorope</groupId>
+    <artifactId>ServiceVectorOPE</artifactId>
+    <name>${module.type} ServiceVectorOPE</name>
 
     <properties>
         <module.type>SERVICE.OPE ::</module.type>
@@ -22,16 +22,15 @@
         <java-source>${java}</java-source>
         <java-target>${java}</java-target>
 
-        <TMMainClass>tm.TM</TMMainClass>
+        <ServiceVectorMainClass>servicevector.ServiceVector</ServiceVectorMainClass>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.tp1.tm.tmapim</groupId>
-            <artifactId>TMAPIM</artifactId>
+            <groupId>org.tp1.servicevector.servicevectorope</groupId>
+            <artifactId>ServiceVectorOPE</artifactId>
             <version>0.1.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-client</artifactId>
@@ -112,14 +111,8 @@
             <version>0.1.0</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.tp1.servicevector.servicevectorope</groupId>
-            <artifactId>ServiceVectorOPE</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-
     </dependencies>
+
 
     <build>
         <plugins>
@@ -147,7 +140,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        ${TMMainClass}
+                                        ${ServiceVectorMainClass}
                                     </mainClass>
                                 </manifest>
                             </archive>
@@ -164,7 +157,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>${TMMainClass}</mainClass>
+                    <mainClass>${ServiceVectorMainClass}</mainClass>
                 </configuration>
             </plugin>
         </plugins>

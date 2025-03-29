@@ -11,6 +11,13 @@
         <option value="$PROJECT_DIR$/iesd2425sv-04-zk/iesd2425sv-04-zk/zookeeper/pom.xml" />
         <option value="$PROJECT_DIR$/iesd2424_tp1/TM/pom.xml" />
         <option value="$PROJECT_DIR$/iesd2424_tp1/Client/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425_tp1/TM/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425_tp1/Client/ClientAPIM/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425_tp1/Client/ClientOPE/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425_tp1/Client/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425_tp1/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425_tp1/SerVector/pom.xml" />
+        <option value="$PROJECT_DIR$/iesd2425_tp1/SerVector/SerVectorOPE/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
