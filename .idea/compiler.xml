@@ -11,6 +11,7 @@
         <module name="SerVectorOPE" />
         <module name="SerVectorCliAPIM" />
         <module name="ser-zook-cli-ope" />
+        <module name="ServiceVector2APIM" />
         <module name="TMOPE" />
         <module name="SerVectorCliOPE" />
         <module name="ClientOPE" />
@@ -23,6 +24,7 @@
         <module name="TransactionManagerAPIM" />
         <module name="SerVectorOPE (1) (org.mdeos.isos.servector)" />
         <module name="SerVectorCliAPIM (1) (org.mdeos.isos.servectorcli)" />
+        <module name="ServiceVector2OPE" />
         <module name="SerVectorAPIM" />
         <module name="SerVectorAPIM (1) (org.mdeos.isos.servector)" />
         <module name="ser-zook-cli-apim" />

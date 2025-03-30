@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.tp1.servicevector</groupId>
-        <artifactId>ServiceVector</artifactId>
+        <groupId>org.tp1.servicevector2</groupId>
+        <artifactId>ServiceVector2</artifactId>
         <version>0.1.0</version>
     </parent>
 
-    <groupId>org.tp1.servicevector.servicevectorope</groupId>
-    <artifactId>ServiceVectorOPE</artifactId>
-    <name>${module.type} ServiceVectorOPE</name>
+    <groupId>org.tp1.servicevector2.servicevector2ope</groupId>
+    <artifactId>ServiceVector2OPE</artifactId>
+    <name>${module.type} ServiceVector2OPE</name>
 
     <properties>
         <module.type>SERVICE.OPE ::</module.type>
@@ -22,13 +22,13 @@
         <java-source>${java}</java-source>
         <java-target>${java}</java-target>
 
-        <ServiceVectorMainClass>servicevector.ServiceVector</ServiceVectorMainClass>
+        <ServiceVectorMainClass>servicevector2.ServiceVector2</ServiceVectorMainClass>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.tp1.servicevector.servicevectorapim</groupId>
-            <artifactId>ServiceVectorAPIM</artifactId>
+            <groupId>org.tp1.servicevector2.servicevector2ope</groupId>
+            <artifactId>ServiceVector2OPE</artifactId>
             <version>0.1.0</version>
         </dependency>
         <dependency>
@@ -104,6 +104,18 @@
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.tp1.servicevector.servicevectorapim</groupId>
+            <artifactId>ServiceVectorAPIM</artifactId>
+            <version>0.1.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.tp1.servicevector2.servicevector2apim</groupId>
+            <artifactId>ServiceVector2APIM</artifactId>
+            <version>0.1.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

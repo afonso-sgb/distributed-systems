@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ServiceVector2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ServiceVector2/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/Client/ClientAPIM/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/Client/ClientAPIM/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/Client/ClientOPE/src/main/java" charset="UTF-8" />
@@ -19,6 +21,12 @@
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector/ServiceVectorOPE/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector2/ServiceVector2APIM/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector2/ServiceVector2APIM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector2/ServiceVector2OPE/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector2/ServiceVector2OPE/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/iesd2425_tp1/ServiceVector2/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/TM/TMAPIM/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/TM/TMAPIM/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/iesd2425_tp1/TM/TMOPE/src/main/java" charset="UTF-8" />

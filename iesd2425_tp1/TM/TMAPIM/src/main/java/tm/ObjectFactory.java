@@ -24,8 +24,10 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
-    private static final QName _CheckServiceVector_QNAME = new QName("http://servicevectorserver", "checkServiceVector");
-    private static final QName _CheckServiceVectorResponse_QNAME = new QName("http://servicevectorserver", "checkServiceVectorResponse");
+    private static final QName _CheckServiceVector2_QNAME = new QName("http://servicevector2server", "checkServiceVector2");
+    private static final QName _CheckServiceVector2Response_QNAME = new QName("http://servicevector2server", "checkServiceVector2Response");
+    private static final QName _ReceiveMessage_QNAME = new QName("http://servicevector2server", "receiveMessage");
+    private static final QName _ReceiveMessageResponse_QNAME = new QName("http://servicevector2server", "receiveMessageResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tm
@@ -35,49 +37,95 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CheckServiceVector }
+     * Create an instance of {@link CheckServiceVector2 }
      * 
      * @return
-     *     the new instance of {@link CheckServiceVector }
+     *     the new instance of {@link CheckServiceVector2 }
      */
-    public CheckServiceVector createCheckServiceVector() {
-        return new CheckServiceVector();
+    public CheckServiceVector2 createCheckServiceVector2() {
+        return new CheckServiceVector2();
     }
 
     /**
-     * Create an instance of {@link CheckServiceVectorResponse }
+     * Create an instance of {@link CheckServiceVector2Response }
      * 
      * @return
-     *     the new instance of {@link CheckServiceVectorResponse }
+     *     the new instance of {@link CheckServiceVector2Response }
      */
-    public CheckServiceVectorResponse createCheckServiceVectorResponse() {
-        return new CheckServiceVectorResponse();
+    public CheckServiceVector2Response createCheckServiceVector2Response() {
+        return new CheckServiceVector2Response();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CheckServiceVector }{@code >}
+     * Create an instance of {@link ReceiveMessage }
+     * 
+     * @return
+     *     the new instance of {@link ReceiveMessage }
+     */
+    public ReceiveMessage createReceiveMessage() {
+        return new ReceiveMessage();
+    }
+
+    /**
+     * Create an instance of {@link ReceiveMessageResponse }
+     * 
+     * @return
+     *     the new instance of {@link ReceiveMessageResponse }
+     */
+    public ReceiveMessageResponse createReceiveMessageResponse() {
+        return new ReceiveMessageResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CheckServiceVector2 }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CheckServiceVector }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link CheckServiceVector2 }{@code >}
      */
-    @XmlElementDecl(namespace = "http://servicevectorserver", name = "checkServiceVector")
-    public JAXBElement<CheckServiceVector> createCheckServiceVector(CheckServiceVector value) {
-        return new JAXBElement<>(_CheckServiceVector_QNAME, CheckServiceVector.class, null, value);
+    @XmlElementDecl(namespace = "http://servicevector2server", name = "checkServiceVector2")
+    public JAXBElement<CheckServiceVector2> createCheckServiceVector2(CheckServiceVector2 value) {
+        return new JAXBElement<>(_CheckServiceVector2_QNAME, CheckServiceVector2 .class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CheckServiceVectorResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CheckServiceVector2Response }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CheckServiceVectorResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link CheckServiceVector2Response }{@code >}
      */
-    @XmlElementDecl(namespace = "http://servicevectorserver", name = "checkServiceVectorResponse")
-    public JAXBElement<CheckServiceVectorResponse> createCheckServiceVectorResponse(CheckServiceVectorResponse value) {
-        return new JAXBElement<>(_CheckServiceVectorResponse_QNAME, CheckServiceVectorResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicevector2server", name = "checkServiceVector2Response")
+    public JAXBElement<CheckServiceVector2Response> createCheckServiceVector2Response(CheckServiceVector2Response value) {
+        return new JAXBElement<>(_CheckServiceVector2Response_QNAME, CheckServiceVector2Response.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReceiveMessage }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReceiveMessage }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://servicevector2server", name = "receiveMessage")
+    public JAXBElement<ReceiveMessage> createReceiveMessage(ReceiveMessage value) {
+        return new JAXBElement<>(_ReceiveMessage_QNAME, ReceiveMessage.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReceiveMessageResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ReceiveMessageResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://servicevector2server", name = "receiveMessageResponse")
+    public JAXBElement<ReceiveMessageResponse> createReceiveMessageResponse(ReceiveMessageResponse value) {
+        return new JAXBElement<>(_ReceiveMessageResponse_QNAME, ReceiveMessageResponse.class, null, value);
     }
 
 }

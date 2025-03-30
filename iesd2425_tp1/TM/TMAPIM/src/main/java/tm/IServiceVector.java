@@ -28,6 +28,21 @@ public interface IServiceVector {
      * 
      * @param arg0
      * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "receiveMessage", targetNamespace = "http://servicevectorserver", className = "tm.ReceiveMessage")
+    @ResponseWrapper(localName = "receiveMessageResponse", targetNamespace = "http://servicevectorserver", className = "tm.ReceiveMessageResponse")
+    @Action(input = "http://servicevectorserver/IServiceVector/receiveMessageRequest", output = "http://servicevectorserver/IServiceVector/receiveMessageResponse")
+    public String receiveMessage(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns int
      */
     @WebMethod

@@ -1,9 +1,9 @@
-package servicevector;
+package servicevector2;
 
 import jakarta.jws.WebService;
 
-@WebService(endpointInterface = "servicevector.IServiceVector")
-public class ServiceVector implements IServiceVector{
+@WebService(endpointInterface = "servicevector2.IServiceVector2")
+public class ServiceVector2 implements IServiceVector2{
 
     private static final String PREPARE = "PREPARE";
     private static final String COMMIT = "COMMIT";
@@ -11,8 +11,8 @@ public class ServiceVector implements IServiceVector{
     private static final String OK = "OK";
 
     @Override
-    public int checkServiceVector(int b) {
-        return b + 10;
+    public int checkServiceVector2(int b) {
+        return b + 20;
     }
 
     public String processPrepare(){
