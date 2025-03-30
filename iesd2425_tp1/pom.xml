@@ -20,9 +20,6 @@
         <module>TM</module>
         <module>Client</module>
         <module>ServiceVector</module>
-        <module>ServiceVector/ServiceVectorAPIM</module>
-        <module>ServiceVector/ServiceVectorOPE</module>
-        <module>ServiceVector2/ServiceVector2APIM</module>
-        <module>ServiceVector2/ServiceVector2OPE</module>
+        <module>ServiceVector2</module>
     </modules>
 </project>

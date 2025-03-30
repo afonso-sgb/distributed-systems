@@ -22,15 +22,10 @@
         <java-source>${java}</java-source>
         <java-target>${java}</java-target>
 
-        <ServiceVectorMainClass>servicevector2.ServiceVector2</ServiceVectorMainClass>
+        <ServiceVector2MainClass>servicevector2.ServiceVector2</ServiceVector2MainClass>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.tp1.servicevector2.servicevector2ope</groupId>
-            <artifactId>ServiceVector2OPE</artifactId>
-            <version>0.1.0</version>
-        </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-client</artifactId>
@@ -106,12 +101,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.tp1.servicevector.servicevectorapim</groupId>
-            <artifactId>ServiceVectorAPIM</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.tp1.servicevector2.servicevector2apim</groupId>
             <artifactId>ServiceVector2APIM</artifactId>
             <version>0.1.0</version>
@@ -146,7 +135,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        ${ServiceVectorMainClass}
+                                        ${ServiceVector2MainClass}
                                     </mainClass>
                                 </manifest>
                             </archive>
@@ -163,7 +152,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>${ServiceVectorMainClass}</mainClass>
+                    <mainClass>${ServiceVector2MainClass}</mainClass>
                 </configuration>
             </plugin>
         </plugins>
