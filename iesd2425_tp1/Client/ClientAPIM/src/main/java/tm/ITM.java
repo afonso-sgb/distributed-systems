@@ -27,6 +27,27 @@ public interface ITM {
     /**
      * 
      * @param arg0
+     * @param arg1
+     * @param arg2
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "sendTransaction", targetNamespace = "http://tmserver", className = "tm.SendTransaction")
+    @ResponseWrapper(localName = "sendTransactionResponse", targetNamespace = "http://tmserver", className = "tm.SendTransactionResponse")
+    @Action(input = "http://tmserver/ITM/sendTransactionRequest", output = "http://tmserver/ITM/sendTransactionResponse")
+    public boolean sendTransaction(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        int arg2);
+
+    /**
+     * 
+     * @param arg0
      * @return
      *     returns int
      */

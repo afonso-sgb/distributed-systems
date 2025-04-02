@@ -12,4 +12,7 @@ public interface ITM {
     @WebMethod
     int check(int a);
 
+    @WebMethod
+    boolean sendTransaction(int p1, int p2, int x);
+
 }

@@ -1,2 +1,2 @@
-@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://servicevector2server")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://servicevectorserver")
 package tm;

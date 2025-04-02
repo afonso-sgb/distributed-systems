@@ -26,6 +26,8 @@ public class ObjectFactory {
 
     private static final QName _Check_QNAME = new QName("http://tmserver", "check");
     private static final QName _CheckResponse_QNAME = new QName("http://tmserver", "checkResponse");
+    private static final QName _SendTransaction_QNAME = new QName("http://tmserver", "sendTransaction");
+    private static final QName _SendTransactionResponse_QNAME = new QName("http://tmserver", "sendTransactionResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: tm
@@ -55,6 +57,26 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SendTransaction }
+     * 
+     * @return
+     *     the new instance of {@link SendTransaction }
+     */
+    public SendTransaction createSendTransaction() {
+        return new SendTransaction();
+    }
+
+    /**
+     * Create an instance of {@link SendTransactionResponse }
+     * 
+     * @return
+     *     the new instance of {@link SendTransactionResponse }
+     */
+    public SendTransactionResponse createSendTransactionResponse() {
+        return new SendTransactionResponse();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Check }{@code >}
      * 
      * @param value
@@ -78,6 +100,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://tmserver", name = "checkResponse")
     public JAXBElement<CheckResponse> createCheckResponse(CheckResponse value) {
         return new JAXBElement<>(_CheckResponse_QNAME, CheckResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SendTransaction }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SendTransaction }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://tmserver", name = "sendTransaction")
+    public JAXBElement<SendTransaction> createSendTransaction(SendTransaction value) {
+        return new JAXBElement<>(_SendTransaction_QNAME, SendTransaction.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SendTransactionResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SendTransactionResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://tmserver", name = "sendTransactionResponse")
+    public JAXBElement<SendTransactionResponse> createSendTransactionResponse(SendTransactionResponse value) {
+        return new JAXBElement<>(_SendTransactionResponse_QNAME, SendTransactionResponse.class, null, value);
     }
 
 }

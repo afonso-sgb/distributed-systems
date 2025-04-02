@@ -70,7 +70,7 @@
                         <configuration>
                             <wsdlUrls>
                                 <wsdlUrl>http://localhost:2061/ServiceVector?wsdl</wsdlUrl>
-                                <wsdlUrl>http://localhost:2062/ServiceVector2?wsdl</wsdlUrl>
+                                <!--<wsdlUrl>http://localhost:2062/ServiceVector2?wsdl</wsdlUrl>-->
                             </wsdlUrls>
                             <packageName>tm</packageName>
                             <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
