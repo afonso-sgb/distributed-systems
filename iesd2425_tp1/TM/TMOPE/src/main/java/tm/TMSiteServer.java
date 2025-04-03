@@ -8,6 +8,7 @@ public class TMSiteServer {
 
     public static void main(String[] args) {
         Endpoint ep = Endpoint.create(new TM());
+        TM.main(args);
         System.out.println("Starting SiteServer...");
         ep.publish("http://" + HOSTNAME + ":" + PORT + "/TM");
         System.out.println("http://" + HOSTNAME + ":" + PORT + "/TM");

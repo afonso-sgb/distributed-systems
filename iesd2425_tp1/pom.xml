@@ -22,5 +22,6 @@
         <module>ServiceVector</module>
         <module>ServiceVector2</module>
         <module>TPLM</module>
+        <module>Manager</module>
     </modules>
 </project>

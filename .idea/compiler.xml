@@ -19,8 +19,10 @@
         <module name="SerVectorCliOPE (1) (isos.iesd.servectorcli)" />
         <module name="TransactionManagerOPE" />
         <module name="ServiceVectorAPIM" />
+        <module name="ManagerAPIM" />
         <module name="ServiceVector2OPE" />
         <module name="ser-zook-cli-apim" />
+        <module name="ManagerOPE" />
         <module name="ServiceVectorOPE" />
         <module name="SerVectorOPE (1) (isos.iesd.servector)" />
         <module name="SerVectorOPE" />

@@ -8,6 +8,7 @@ public class ServiceVectorSiteServer {
 
     public static void main(String[] args) {
         Endpoint ep = Endpoint.create(new ServiceVector());
+        ServiceVector.main(args);
         System.out.println("Starting SiteServer...");
         ep.publish("http://" + HOSTNAME + ":" + PORT + "/ServiceVector");
         System.out.println("http://" + HOSTNAME + ":" + PORT + "/ServiceVector");
