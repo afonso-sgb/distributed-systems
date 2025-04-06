@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
@@ -19,6 +20,10 @@
         <option value="$PROJECT_DIR$/iesd2425_tp1/SerVector/SerVectorOPE/pom.xml" />
         <option value="$PROJECT_DIR$/ServiceVector2/pom.xml" />
         <option value="$PROJECT_DIR$/iesd2425_tp1/ServiceVector2/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/Manager/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/Manager_SVector/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/SerVector/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/Client/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
