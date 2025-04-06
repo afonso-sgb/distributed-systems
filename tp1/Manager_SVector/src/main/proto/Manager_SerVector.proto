@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "managerservectorstubs";
+
+package managerservectorservice; // package do proto
+
+service ManagerSerVectorService{
+  rpc registerSerVector(SerVectorAddress) returns (VoidResponse);
+}
+
+message SerVectorAddress{
+  string ip = 1;
+  int32 port = 2;
+}
+
+message VoidResponse{
+
+}
