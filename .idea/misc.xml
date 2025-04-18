@@ -24,6 +24,11 @@
         <option value="$PROJECT_DIR$/tp1/Manager_SVector/pom.xml" />
         <option value="$PROJECT_DIR$/tp1/SerVector/pom.xml" />
         <option value="$PROJECT_DIR$/tp1/Client/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/TM/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/TMSerVectorContract/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/ClientTMContract/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/ClientSerVectorContract/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/ClientManagerContract/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

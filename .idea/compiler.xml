@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ClientAPIM" />
         <module name="SerVectorCliOPE (2) (org.mdeos.isos.servectorcli)" />
+        <module name="ClientSerVectorContract" />
         <module name="TPLMOPE" />
         <module name="SerVectorCliAPIM" />
         <module name="SerVectorCliOPE" />
@@ -15,6 +16,7 @@
         <module name="SerVectorAPIM (1) (isos.iesd.servector)" />
         <module name="SerVectorCliAPIM (2) (org.mdeos.isos.servectorcli)" />
         <module name="SerVectorAPIM (2) (org.mdeos.isos.servector)" />
+        <module name="ClientTMContract" />
         <module name="ser-zook-svr-doe" />
         <module name="SerVectorCliOPE (1) (isos.iesd.servectorcli)" />
         <module name="Manager (1) (iesd.tp01)" />
@@ -38,10 +40,13 @@
         <module name="SerVectorCliAPIM (1) (isos.iesd.servectorcli)" />
         <module name="ser-zook-cli-doe" />
         <module name="TPLMAPIM" />
+        <module name="TM (1) (TM)" />
+        <module name="ClientManagerContract" />
         <module name="ser-zook-svr-ope" />
         <module name="TransactionManagerAPIM" />
         <module name="SerVectorOPE (1) (org.mdeos.isos.servector)" />
         <module name="SerVectorCliAPIM (1) (org.mdeos.isos.servectorcli)" />
+        <module name="TMSerVectorContract" />
         <module name="SerVectorAPIM" />
         <module name="SerVectorAPIM (1) (org.mdeos.isos.servector)" />
         <module name="TMAPIM" />
