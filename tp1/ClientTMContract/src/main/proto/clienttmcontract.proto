@@ -1,0 +1,21 @@
+package clienttm;
+
+service ClientTMContract{
+  rpc getTransactionID(GetTransactionIDRequest) returns (GetTransactionIDResponse);
+  rpc endTransaction(EndTransactionRequest) returns (EndTransactionResponse);
+}
+
+message GetTransactionIDRequest{}
+
+message GetTransactionIDResponse{
+  required string transactionID = 1;
+}
+
+message EndTransactionRequest{
+  required string clientID = 1;
+}
+
+message EndTransactionResponse{
+  required bool transactionCommited = 1;
+  required string message = 2;
+}

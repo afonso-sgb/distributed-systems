@@ -1,0 +1,39 @@
+package tmservector;
+
+service TMSerVectorContract{
+  // Implementar no TM (quem chama a funcção é o servector)
+  rpc addServerToCommit(AddServerRequest) returns (AddServerResponse);
+
+  // Implementar no servector (quem chama a função é o tm)
+  rpc prepare(PrepareRequest) returns (PrepareResponse);
+  rpc commit(CommitRequest) returns (CommitResponse);
+  rpc abort(AbortRequest) returns (AbortResponse);
+}
+
+message AddServerRequest{
+  required string servectorIP = 1;
+  required int32 servectorPort = 2;
+  required string clientID = 3;
+}
+
+message AddServerResponse{
+  required bool success = 1;
+}
+
+message PrepareRequest{}
+
+message PrepareResponse{
+  required bool ready = 1;
+}
+
+message CommitRequest{}
+
+message CommitResponse{
+  required bool success = 1;
+}
+
+message AbortRequest{}
+
+message AbortResponse{
+  required bool aborted = 1;
+}

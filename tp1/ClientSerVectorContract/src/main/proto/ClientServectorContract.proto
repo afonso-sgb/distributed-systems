@@ -1,0 +1,25 @@
+package clientservector;
+
+service ClientServectorContract{
+  rpc read(ReadRequest) returns (ReadResponse);
+  rpc write(WriteRequest) returns (WriteResponse);
+}
+
+message ReadRequest{
+  required string clientID = 1;
+  required int32 position = 2;
+}
+
+message ReadResponse{
+  required int32 value = 1;
+}
+
+message WriteRequest{
+  required string clientID = 1;
+  required int32 position = 2;
+  required int32 value = 3;
+}
+
+message WriteResponse{
+  required bool success = 1;
+}
