@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_package = "tplm";
+option java_outer_classname = "TPLMProto";
+
+service TPLMService {
+  rpc Lock (LockRequest) returns (LockResponse);
+  rpc Unlock (UnlockRequest) returns (UnlockResponse);
+}
+
+message LockRequest {
+  string transactionID = 1;
+  string resourceID = 2; // ex: "127.0.0.1:5000:2"
+}
+
+message LockResponse {
+  bool success = 1;
+}
+
+message UnlockRequest {
+  string transactionID = 1;
+  string resourceID = 2;
+}
+
+message UnlockResponse {
+  bool success = 1;
+}

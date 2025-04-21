@@ -1,0 +1,11 @@
+package clientmanager;
+
+service ClientManagerContract{
+  rpc getAllServers(GetAllServersRequest) returns (GetAllServersResponse);
+}
+
+message GetAllServersRequest{}
+
+message GetAllServersResponse{
+  repeated string serVectorAtual = 1;
+}
