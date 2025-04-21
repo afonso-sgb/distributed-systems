@@ -47,7 +47,7 @@
                     </descriptors>
                     <archive>
                         <manifest>
-                            <mainClass>client.Client</mainClass>
+                            <mainClass>client.ClientTestMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

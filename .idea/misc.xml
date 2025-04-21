@@ -29,6 +29,7 @@
         <option value="$PROJECT_DIR$/tp1/ClientTMContract/pom.xml" />
         <option value="$PROJECT_DIR$/tp1/ClientSerVectorContract/pom.xml" />
         <option value="$PROJECT_DIR$/tp1/ClientManagerContract/pom.xml" />
+        <option value="$PROJECT_DIR$/tp1/TPLM/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -36,7 +37,6 @@
         <option value="$PROJECT_DIR$/iesd2425_tp1/iesd2425_tp1/pom.xml" />
       </set>
     </option>
-    <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

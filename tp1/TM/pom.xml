@@ -15,15 +15,24 @@
     </properties>
 
     <dependencies>
+        <!-- Contrato com o Cliente -->
         <dependency>
             <groupId>ClientTMContract</groupId>
             <artifactId>ClientTMContract</artifactId>
             <version>1.0</version>
         </dependency>
 
+        <!-- Contrato com SerVector -->
         <dependency>
             <groupId>org.tp1.tmservector</groupId>
             <artifactId>TMSerVectorContract</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- Dependência do TPLM (lock manager) -->
+        <dependency>
+            <groupId>iesd.tp01</groupId>
+            <artifactId>TPLM</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>
@@ -56,6 +65,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
