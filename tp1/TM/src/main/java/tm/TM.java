@@ -63,6 +63,7 @@ class TM {
         @Override
         public void getTransactionID(GetTransactionIDRequest request, StreamObserver<GetTransactionIDResponse> responseObserver) {
             String generatedUUID = UUID.randomUUID().toString();
+
             clientsAndServers.putIfAbsent(generatedUUID, new ArrayList<>());
             clientsAndResources.putIfAbsent(generatedUUID, new ArrayList<>());
 
@@ -104,7 +105,7 @@ class TM {
                 channel.shutdown();
             }
 
-            // Liberar locks via TPLM
+            // Libertar locks via TPLM
             List<String> resources = clientsAndResources.getOrDefault(clientID, Collections.emptyList());
             for (String res : new ArrayList<>(resources)) {
                 ManagedChannel tplmChannel = createChannel(TPLM_IP, TPLM_PORT);

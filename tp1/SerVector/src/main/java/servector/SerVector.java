@@ -19,7 +19,7 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
 
     private static ArrayList<Integer> tmp_vector = new ArrayList<>(vector);
 
-    private final int ARRAY_SUM = vector.stream().mapToInt(Integer::intValue).sum();
+    private static final int ARRAY_SUM = vector.stream().mapToInt(Integer::intValue).sum();
 
     private static String serviceVectorIpAddress;
     private static int serviceAddressPort;
@@ -92,7 +92,7 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
 
     }
 
-    private boolean invariantCheckIsOk(){
+    private static boolean invariantCheckIsOk(){
         return ARRAY_SUM == vector.stream().mapToInt(Integer::intValue).sum();
     }
 
@@ -129,7 +129,6 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
             int value = request.getValue();
 
             try{
-                System.out.println("Current vector before write: " + tmp_vector.toString());
                 tmp_vector.set(pos, value);
                 // ENVIAR TRUE AO CLIENTE
                 ClientServectorContractOuterClass.WriteResponse response = ClientServectorContractOuterClass.WriteResponse.newBuilder()
@@ -148,8 +147,6 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
             }
 
             alertTM(clientID, serviceVectorIpAddress, serviceAddressPort);
-
-            System.out.println("Current vector after write: " + tmp_vector.toString());
         }
 
         @Override
@@ -185,11 +182,14 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
             System.out.println("Vector before commit: " + vector);
             vector = new ArrayList<>(tmp_vector);
             System.out.println("Vector after commit: " + vector);
+            System.out.println("invariantCheckIsOk after commit?: " + invariantCheckIsOk());
+
             Tmservectorcontract.CommitResponse res = Tmservectorcontract.CommitResponse.newBuilder()
                     .setSuccess(true)
                     .build();
             responseObserver.onNext(res);
             responseObserver.onCompleted();
+
         }
 
         @Override
@@ -197,6 +197,8 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
             System.out.println("Vector before abort: " + vector);
             tmp_vector = new ArrayList<>(vector);
             System.out.println("Vector after abort: " + vector);
+            System.out.println("invariantCheckIsOk after abort?: " + invariantCheckIsOk());
+
             Tmservectorcontract.AbortResponse res = Tmservectorcontract.AbortResponse.newBuilder()
                     .setAborted(true)
                     .build();

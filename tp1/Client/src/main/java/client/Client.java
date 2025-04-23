@@ -175,7 +175,7 @@ public class Client {
             sre.printStackTrace();
         }
         finally {
-            channel.shutdown();
+            channel.shutdownNow();
         }
         return id;
     }
