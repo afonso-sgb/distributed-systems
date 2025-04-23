@@ -16,9 +16,7 @@ import tmservector.Tmservectorcontract;
 
 public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServiceImplBase {
     private static ArrayList<Integer> vector = new ArrayList<>(Arrays.asList(300, 234, 56, 789));
-
     private static ArrayList<Integer> tmp_vector = new ArrayList<>(vector);
-
     private final int ARRAY_SUM = vector.stream().mapToInt(Integer::intValue).sum();
 
     private static String serviceVectorIpAddress;
@@ -40,42 +38,40 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
         ManagedChannel channel = ManagedChannelBuilder.forAddress(managerIP, managerPort)
                 .usePlaintext()
                 .build();
+
         ManagerSerVectorServiceGrpc.ManagerSerVectorServiceBlockingStub stub = ManagerSerVectorServiceGrpc.newBlockingStub(channel);
 
         SerVectorAddress address = SerVectorAddress.newBuilder()
-                .setIp(serviceVectorIpAddress)
+                .setIp("localhost")
                 .setPort(serviceAddressPort)
                 .build();
 
-        VoidResponse response = stub.registerSerVector(address);
+        stub.registerSerVector(address);
         System.out.println("Service registered.");
 
         channel.shutdown();
     }
 
-    private static void startServiceVector(){
+    private static void startServiceVector() {
         try {
-            io.grpc.Server SerVectorServer = ServerBuilder
+            io.grpc.Server server = ServerBuilder
                     .forPort(serviceAddressPort)
                     .addService(new ClientService())
                     .addService(new TMService())
                     .build();
 
-            SerVectorServer.start();
+            server.start();
             System.out.println("SerVector up!\nListening on Port: " + serviceAddressPort);
-
-            SerVectorServer.awaitTermination();
-
+            server.awaitTermination();
 
         } catch (Exception ex) {
             ex.printStackTrace();
-
         }
     }
 
-    private static void getAddress(String[] args) throws Exception{
-        if(args.length != 6){
-            System.out.println("Usage: <ServiceVectorIP> <ServiceVectorPort> <managerIP> <managerPort> <TMIP> <TMPort>\"");
+    private static void getAddress(String[] args) throws Exception {
+        if (args.length != 6) {
+            System.out.println("Usage: <ServiceVectorIP> <ServiceVectorPort> <managerIP> <managerPort> <TMIP> <TMPort>");
             System.exit(1);
         }
 
@@ -89,23 +85,20 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
         } catch (NumberFormatException e) {
             throw new Exception("Error: Port has to be a valid number!");
         }
-
     }
 
-    private boolean invariantCheckIsOk(){
+    private boolean invariantCheckIsOk() {
         return ARRAY_SUM == vector.stream().mapToInt(Integer::intValue).sum();
     }
 
     private static ManagedChannel createChannel(String ip, int port) {
-        return ManagedChannelBuilder
-                .forAddress(ip, port)
+        return ManagedChannelBuilder.forAddress(ip, port)
                 .usePlaintext()
                 .build();
     }
 
-    private static void alertTM(String clientID, String servectorIP, int servectorPort){
+    private static void alertTM(String clientID, String servectorIP, int servectorPort) {
         ManagedChannel channel = createChannel(TMIP, TMPort);
-
         TMSerVectorContractGrpc.TMSerVectorContractBlockingStub stub = TMSerVectorContractGrpc.newBlockingStub(channel);
 
         Tmservectorcontract.AddServerRequest request = Tmservectorcontract.AddServerRequest.newBuilder()
@@ -115,10 +108,11 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
                 .build();
 
         Tmservectorcontract.AddServerResponse response = stub.addServerToCommit(request);
-
         channel.shutdown();
-        if(response.getSuccess()) System.out.println("Server added to TM.");
 
+        if (response.getSuccess()) {
+            System.out.println("Server added to TM.");
+        }
     }
 
     public static class ClientService extends ClientServectorContractGrpc.ClientServectorContractImplBase {
@@ -128,18 +122,15 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
             int pos = request.getPosition();
             int value = request.getValue();
 
-            try{
+            try {
                 System.out.println("Current vector before write: " + tmp_vector.toString());
                 tmp_vector.set(pos, value);
-                // ENVIAR TRUE AO CLIENTE
                 ClientServectorContractOuterClass.WriteResponse response = ClientServectorContractOuterClass.WriteResponse.newBuilder()
                         .setSuccess(true)
                         .build();
                 responseObserver.onNext(response);
                 responseObserver.onCompleted();
-            }
-            catch(Exception e){
-                // ENVIAR FALSE AO CLIENTE
+            } catch (Exception e) {
                 ClientServectorContractOuterClass.WriteResponse response = ClientServectorContractOuterClass.WriteResponse.newBuilder()
                         .setSuccess(false)
                         .build();
@@ -147,19 +138,17 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
                 responseObserver.onCompleted();
             }
 
-            alertTM(clientID, serviceVectorIpAddress, serviceAddressPort);
-
+            alertTM(clientID, "host.containers.internal", serviceAddressPort);
             System.out.println("Current vector after write: " + tmp_vector.toString());
         }
 
         @Override
         public void read(ClientServectorContractOuterClass.ReadRequest request, StreamObserver<ClientServectorContractOuterClass.ReadResponse> responseObserver) {
             String clientID = request.getClientID();
-
             int pos = request.getPosition();
             int value = tmp_vector.get(pos);
 
-            alertTM(clientID, serviceVectorIpAddress, serviceAddressPort);
+            alertTM(clientID, "host.containers.internal", serviceAddressPort);
 
             ClientServectorContractOuterClass.ReadResponse response = ClientServectorContractOuterClass.ReadResponse.newBuilder()
                     .setValue(value)
@@ -170,7 +159,7 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
         }
     }
 
-    public static class TMService extends TMSerVectorContractGrpc.TMSerVectorContractImplBase{
+    public static class TMService extends TMSerVectorContractGrpc.TMSerVectorContractImplBase {
         @Override
         public void prepare(Tmservectorcontract.PrepareRequest request, StreamObserver<Tmservectorcontract.PrepareResponse> responseObserver) {
             Tmservectorcontract.PrepareResponse res = Tmservectorcontract.PrepareResponse.newBuilder()
@@ -197,6 +186,7 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
             System.out.println("Vector before abort: " + vector);
             tmp_vector = new ArrayList<>(vector);
             System.out.println("Vector after abort: " + vector);
+
             Tmservectorcontract.AbortResponse res = Tmservectorcontract.AbortResponse.newBuilder()
                     .setAborted(true)
                     .build();

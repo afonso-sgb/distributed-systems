@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<bindings xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-	wsdlLocation="http://generosom:2060/Vector?wsdl" xmlns="http://java.sun.com/xml/ns/jaxws">
-
-	<!-- applies to wsdl:definitions node, that would mean the entire wsdl -->
-	<enableAsyncMapping>true</enableAsyncMapping>
-
-</bindings>

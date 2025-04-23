@@ -6,65 +6,81 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ClientAPIM" />
-        <module name="TPLMOPE" />
         <module name="SerVectorCliOPE" />
-        <module name="SerVectorCliAPIM (2) (org.mdeos.isos.servectorcli)" />
-        <module name="SerVectorAPIM (2) (org.mdeos.isos.servector)" />
         <module name="Contract_Manager_SVector" />
-        <module name="TransactionManagerOPE" />
-        <module name="ManagerAPIM" />
-        <module name="ser-zook-cli-apim" />
-        <module name="ServiceVectorOPE" />
         <module name="SerVectorOPE" />
-        <module name="ServiceVector2APIM" />
-        <module name="ser-zook-cli-ope" />
-        <module name="TMOPE" />
         <module name="SerVector (3) (iesd.tp01)" />
         <module name="Manager (2) (iesd.tp01)" />
-        <module name="SerVectorCliAPIM (1) (isos.iesd.servectorcli)" />
-        <module name="ser-zook-cli-doe" />
         <module name="TM (2) (TM)" />
-        <module name="TransactionManagerAPIM" />
         <module name="SerVectorOPE (1) (org.mdeos.isos.servector)" />
         <module name="SerVectorAPIM (1) (org.mdeos.isos.servector)" />
-        <module name="TMAPIM" />
-        <module name="SerVectorCliOPE (2) (org.mdeos.isos.servectorcli)" />
         <module name="ClientSerVectorContract" />
         <module name="SerVectorCliAPIM" />
-        <module name="ClientOPE" />
-        <module name="SerVectorAPIM (1) (isos.iesd.servector)" />
         <module name="ClientTMContract" />
-        <module name="SerVectorCliOPE (1) (isos.iesd.servectorcli)" />
-        <module name="ser-zook-svr-doe" />
         <module name="Manager (1) (iesd.tp01)" />
-        <module name="ServiceVectorAPIM" />
         <module name="SerVector (1) (iesd.tp01)" />
         <module name="Client (2) (Client)" />
         <module name="TPLM" />
-        <module name="ServiceVector2OPE" />
-        <module name="ManagerOPE" />
-        <module name="SerVectorOPE (1) (isos.iesd.servector)" />
         <module name="Client (1) (Client)" />
-        <module name="SerVectorOPE (2) (org.mdeos.isos.servector)" />
         <module name="SerVectorCliOPE (1) (org.mdeos.isos.servectorcli)" />
-        <module name="TPLMAPIM" />
         <module name="TM (1) (TM)" />
         <module name="ClientManagerContract" />
-        <module name="ser-zook-svr-ope" />
         <module name="SerVectorCliAPIM (1) (org.mdeos.isos.servectorcli)" />
         <module name="TMSerVectorContract" />
         <module name="SerVectorAPIM" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Client" target="1.5" />
       <module name="Client (1) (org.tp1.client)" target="1.5" />
+      <module name="ClientAPIM" target="1.8" />
+      <module name="ClientOPE" target="1.8" />
       <module name="Clinte_ab" target="21" />
+      <module name="iesd2425_tp1" target="1.5" />
+      <module name="Manager" target="21" />
       <module name="Manager (1) (org.tp1.manager)" target="21" />
+      <module name="ManagerAPIM" target="21" />
+      <module name="ManagerOPE" target="11" />
+      <module name="ser-zook-cli" target="21" />
+      <module name="ser-zook-cli-apim" target="21" />
+      <module name="ser-zook-cli-doe" target="21" />
+      <module name="ser-zook-cli-ope" target="21" />
+      <module name="ser-zook-svr" target="21" />
+      <module name="ser-zook-svr-doe" target="21" />
+      <module name="ser-zook-svr-ope" target="21" />
+      <module name="SerVector (1) (isos.iesd)" target="1.5" />
+      <module name="SerVector (2) (org.mdeos.isos)" target="21" />
+      <module name="SerVectorAPIM (1) (isos.iesd.servector)" target="1.8" />
       <module name="SerVectorAPIM (1) (org.tp1.SerVector.SerVectorAPIM)" target="21" />
+      <module name="SerVectorAPIM (2) (org.mdeos.isos.servector)" target="21" />
+      <module name="SerVectorCli (1) (isos.iesd)" target="1.5" />
+      <module name="SerVectorCli (2) (org.mdeos.isos)" target="21" />
+      <module name="SerVectorCliAPIM (1) (isos.iesd.servectorcli)" target="1.8" />
+      <module name="SerVectorCliAPIM (2) (org.mdeos.isos.servectorcli)" target="21" />
+      <module name="SerVectorCliOPE (1) (isos.iesd.servectorcli)" target="1.8" />
+      <module name="SerVectorCliOPE (2) (org.mdeos.isos.servectorcli)" target="21" />
+      <module name="SerVectorOPE (1) (isos.iesd.servector)" target="11" />
       <module name="SerVectorOPE (1) (org.tp1.SerVector.SerVectorOPE)" target="11" />
+      <module name="SerVectorOPE (2) (org.mdeos.isos.servector)" target="21" />
+      <module name="ServiceVector" target="21" />
+      <module name="ServiceVector2" target="21" />
+      <module name="ServiceVector2APIM" target="21" />
+      <module name="ServiceVector2OPE" target="11" />
+      <module name="ServiceVectorAPIM" target="21" />
+      <module name="ServiceVectorOPE" target="11" />
+      <module name="TM" target="21" />
       <module name="TM (1)" target="21" />
       <module name="TM (1) (org.tp1.tm)" target="21" />
+      <module name="TMAPIM" target="21" />
+      <module name="TMOPE" target="11" />
+      <module name="TPLM (1) (org.tp1.tplm)" target="21" />
+      <module name="TPLMAPIM" target="21" />
+      <module name="TPLMOPE" target="21" />
+      <module name="TransactionManager" target="21" />
+      <module name="TransactionManagerAPIM" target="21" />
+      <module name="TransactionManagerOPE" target="21" />
+      <module name="Vector-jax-ws" target="21" />
+      <module name="zookeeper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

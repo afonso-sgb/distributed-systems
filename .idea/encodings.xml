@@ -87,7 +87,10 @@
     <file url="file://$PROJECT_DIR$/tp1/Client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/Client/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/ClientManagerContract/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/ClientManagerContract/src/main/proto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/ClientManagerContract/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/ClientManagerContract/target/generated-sources/protobuf/grpc-java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/ClientManagerContract/target/generated-sources/protobuf/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/ClientSerVectorContract/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/ClientSerVectorContract/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/ClientTMContract/src/main/java" charset="UTF-8" />
@@ -95,14 +98,22 @@
     <file url="file://$PROJECT_DIR$/tp1/Manager/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/Manager/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/Manager_SVector/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/Manager_SVector/src/main/proto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/Manager_SVector/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/Manager_SVector/target/generated-sources/protobuf/grpc-java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/Manager_SVector/target/generated-sources/protobuf/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/SerVector/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/SerVector/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/TM/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/TM/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/TMSerVectorContract/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/TMSerVectorContract/src/main/proto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/TMSerVectorContract/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/TMSerVectorContract/target/generated-sources/protobuf/grpc-java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/TMSerVectorContract/target/generated-sources/protobuf/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/TPLM/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tp1/TPLM/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tp1/src/main/resources" charset="UTF-8" />
   </component>
 </project>

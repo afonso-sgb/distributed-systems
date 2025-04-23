@@ -18,11 +18,11 @@ import java.util.UUID;
 class TM {
     private static String TMIpAddress;
     private static int TMPort;
-    private static String TPLM_IP = "localhost";
+    private static String TPLM_IP = "host.containers.internal";
     private static int TPLM_PORT = 6000;
 
     private static Map<String, List<String>> clientsAndServers = new HashMap<>();
-    private static Map<String, List<String>> clientsAndResources = new ConcurrentHashMap<>();
+    private static Map<String, Set<String>> clientsAndResources = new ConcurrentHashMap<>();
 
     public static void main(String[] args) throws Exception {
         getAddress(args);
@@ -33,8 +33,13 @@ class TM {
         if (args.length == 2) {
             TMIpAddress = args[0];
             TMPort = Integer.parseInt(args[1]);
+        } else if (args.length == 4) {
+            TMIpAddress = args[0];
+            TMPort = Integer.parseInt(args[1]);
+            TPLM_IP = args[2];
+            TPLM_PORT = Integer.parseInt(args[3]);
         } else {
-            throw new Exception("Number of parameter not valid, please pass IP and Port!");
+            throw new Exception("Number of parameter not valid, please pass <TM_IP> <TM_PORT> [<TPLM_IP> <TPLM_PORT>]");
         }
     }
 
@@ -64,7 +69,7 @@ class TM {
         public void getTransactionID(GetTransactionIDRequest request, StreamObserver<GetTransactionIDResponse> responseObserver) {
             String generatedUUID = UUID.randomUUID().toString();
             clientsAndServers.putIfAbsent(generatedUUID, new ArrayList<>());
-            clientsAndResources.putIfAbsent(generatedUUID, new ArrayList<>());
+            clientsAndResources.putIfAbsent(generatedUUID, new HashSet<>());
 
             GetTransactionIDResponse response = GetTransactionIDResponse.newBuilder().setTransactionID(generatedUUID).build();
             responseObserver.onNext(response);
@@ -77,7 +82,7 @@ class TM {
         public void endTransaction(EndTransactionRequest request, StreamObserver<EndTransactionResponse> responseObserver) {
             String clientID = request.getClientID();
             List<String> serversForClientID = clientsAndServers.getOrDefault(clientID, Collections.emptyList());
-            List<String> serversCopy = new ArrayList<>(serversForClientID); // avoid ConcurrentModification
+            List<String> serversCopy = new ArrayList<>(serversForClientID);
 
             List<Boolean> prepare = new ArrayList<>();
             for (String server : serversCopy) {
@@ -104,16 +109,21 @@ class TM {
                 channel.shutdown();
             }
 
-            // Liberar locks via TPLM
-            List<String> resources = clientsAndResources.getOrDefault(clientID, Collections.emptyList());
-            for (String res : new ArrayList<>(resources)) {
+            Set<String> resources = clientsAndResources.getOrDefault(clientID, Collections.emptySet());
+            for (String res : resources) {
                 ManagedChannel tplmChannel = createChannel(TPLM_IP, TPLM_PORT);
                 var tplmStub = TPLMServiceGrpc.newBlockingStub(tplmChannel);
-                tplmStub.unlock(TPLMProto.UnlockRequest.newBuilder()
-                        .setTransactionID(clientID)
-                        .setResourceID(res)
-                        .build());
-                tplmChannel.shutdown();
+
+                try {
+                    tplmStub.unlock(TPLMProto.UnlockRequest.newBuilder()
+                            .setTransactionID(clientID)
+                            .setResourceID(res)
+                            .build());
+                } catch (Exception e) {
+                    System.err.println("[TM] Unlock error for " + res + ": " + e.getMessage());
+                } finally {
+                    tplmChannel.shutdown();
+                }
             }
 
             EndTransactionResponse res = EndTransactionResponse.newBuilder()
@@ -132,11 +142,9 @@ class TM {
             String server = request.getServectorIP() + ":" + request.getServectorPort();
             String resourceID = server + ":" + request.getResourceID();
 
-            // Verifica se já foi adicionado
-            if (clientsAndResources.getOrDefault(clientID, Collections.emptyList()).contains(resourceID)) {
+            if (clientsAndResources.getOrDefault(clientID, Collections.emptySet()).contains(resourceID)) {
                 System.out.println("TM: Resource " + resourceID + " already registered, skipping lock.");
             } else {
-                // === TPLM LOCK ===
                 ManagedChannel tplmChannel = createChannel(TPLM_IP, TPLM_PORT);
                 var tplmStub = TPLMServiceGrpc.newBlockingStub(tplmChannel);
 
@@ -160,16 +168,13 @@ class TM {
                 }
             }
 
-            // Adiciona apenas se ainda não existir
             clientsAndServers.computeIfAbsent(clientID, k -> new ArrayList<>());
             if (!clientsAndServers.get(clientID).contains(server)) {
                 clientsAndServers.get(clientID).add(server);
             }
 
-            clientsAndResources.computeIfAbsent(clientID, k -> new ArrayList<>());
-            if (!clientsAndResources.get(clientID).contains(resourceID)) {
-                clientsAndResources.get(clientID).add(resourceID);
-            }
+            clientsAndResources.computeIfAbsent(clientID, k -> new HashSet<>());
+            clientsAndResources.get(clientID).add(resourceID);
 
             Tmservectorcontract.AddServerResponse response = Tmservectorcontract.AddServerResponse
                     .newBuilder()

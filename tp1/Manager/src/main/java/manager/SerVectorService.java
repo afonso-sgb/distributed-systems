@@ -20,12 +20,12 @@ public class SerVectorService extends ManagerSerVectorServiceGrpc.ManagerSerVect
         System.out.println("Registering with IP: " + ip + " and port: " + port);
 
         VoidResponse response = VoidResponse.newBuilder().build();
-
         responseObserver.onNext(response);
         responseObserver.onCompleted();
 
-        this.serviceVectors.add(new Server(ip, port));
+        this.serviceVectors.add(new Server("localhost", port));
         System.out.println("Current vectors: " + serviceVectors);
     }
+
 
 }

@@ -3,7 +3,7 @@ package client;
 public class ClientTestMain {
     public static void main(String[] args) throws InterruptedException {
         // Args para o Client: <managerIP> <managerPort> <TMIP> <TMPort>
-        String[] clientArgs = {"localhost", "5000", "localhost", "5001"};
+        String[] clientArgs = {"localhost", "5001", "localhost", "5000"};
 
         Thread client1 = new Thread(() -> {
             try {
