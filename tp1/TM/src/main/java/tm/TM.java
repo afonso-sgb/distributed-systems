@@ -5,6 +5,7 @@ import clienttm.Clienttmcontract.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.ServerBuilder;
+import io.grpc.StatusRuntimeException;
 import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 import io.grpc.stub.StreamObserver;
 import tmservector.TMSerVectorContractGrpc;
@@ -16,6 +17,9 @@ import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
+
+import static java.lang.Long.MAX_VALUE;
 
 class TM {
     private static String TMIpAddress;
@@ -25,6 +29,7 @@ class TM {
 
     private static Map<String, List<String>> clientsAndServers = new HashMap<>();
     private static Map<String, Set<String>> clientsAndResources = new ConcurrentHashMap<>();
+    private static final AtomicLong transactionCounter = new AtomicLong();
 
     public static void main(String[] args) throws Exception {
         getAddress(args);
@@ -46,6 +51,7 @@ class TM {
         try {
             io.grpc.Server managerServer = NettyServerBuilder
                     .forAddress(new InetSocketAddress(TMIpAddress, TMPort))
+                    //.forPort(TMPort)
                     .addService(new TMClient())
                     .addService(new TMSerVector())
                     .build();
@@ -66,7 +72,10 @@ class TM {
     public static class TMClient extends ClientTMContractGrpc.ClientTMContractImplBase {
         @Override
         public void getTransactionID(GetTransactionIDRequest request, StreamObserver<GetTransactionIDResponse> responseObserver) {
-            String generatedUUID = UUID.randomUUID().toString();
+            if (transactionCounter.get() >= MAX_VALUE) {
+                transactionCounter.set(0);
+            }
+            String generatedUUID = UUID.randomUUID().toString() + transactionCounter.incrementAndGet();
             clientsAndServers.putIfAbsent(generatedUUID, new ArrayList<>());
             clientsAndResources.putIfAbsent(generatedUUID, new HashSet<>());
 
@@ -85,12 +94,30 @@ class TM {
 
             List<Boolean> prepare = new ArrayList<>();
             for (String server : serversCopy) {
-                String[] parts = server.split(":");
-                ManagedChannel channel = createChannel(parts[0], Integer.parseInt(parts[1]));
-                var stub = TMSerVectorContractGrpc.newBlockingStub(channel);
-                var response = stub.prepare(Tmservectorcontract.PrepareRequest.newBuilder().build());
-                prepare.add(response.getReady());
-                channel.shutdown();
+                try{
+                    String[] parts = server.split(":");
+                    ManagedChannel channel = createChannel(parts[0], Integer.parseInt(parts[1]));
+                    var stub = TMSerVectorContractGrpc.newBlockingStub(channel);
+                    var response = stub.prepare(Tmservectorcontract.PrepareRequest.newBuilder().build());
+                    prepare.add(response.getReady());
+                    channel.shutdown();
+                }
+                catch (StatusRuntimeException sre){
+                    prepare.add(false);
+                    sre.printStackTrace();
+                }
+
+            }
+
+            if(prepare.isEmpty()){
+                // enviar mensagem de transactionCommited = false
+                EndTransactionResponse res = EndTransactionResponse.newBuilder()
+                        .setTransactionCommited(false)
+                        .setMessage("The transaction was aborted.")
+                        .build();
+                responseObserver.onNext(res);
+                responseObserver.onCompleted();
+                return;
             }
 
             boolean abort = prepare.contains(false);
@@ -98,13 +125,19 @@ class TM {
             for (String server : serversCopy) {
                 String[] parts = server.split(":");
                 ManagedChannel channel = createChannel(parts[0], Integer.parseInt(parts[1]));
-                var stub = TMSerVectorContractGrpc.newBlockingStub(channel);
 
-                if (abort) {
-                    stub.abort(Tmservectorcontract.AbortRequest.newBuilder().build());
-                } else {
-                    stub.commit(Tmservectorcontract.CommitRequest.newBuilder().build());
+                try{
+                    var stub = TMSerVectorContractGrpc.newBlockingStub(channel);
+                    if (abort) {
+                        stub.abort(Tmservectorcontract.AbortRequest.newBuilder().build());
+                    } else {
+                        stub.commit(Tmservectorcontract.CommitRequest.newBuilder().build());
+                    }
                 }
+                catch (StatusRuntimeException sre){
+                    sre.printStackTrace();
+                }
+
                 channel.shutdown();
             }
 

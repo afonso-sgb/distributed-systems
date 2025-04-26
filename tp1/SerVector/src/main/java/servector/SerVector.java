@@ -58,6 +58,7 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
         try {
             io.grpc.Server server = NettyServerBuilder
                     .forAddress(new InetSocketAddress(serviceVectorIpAddress, serviceAddressPort))
+                    //.forPort(serviceAddressPort)
                     .addService(new ClientService())
                     .addService(new TMService())
                     .build();

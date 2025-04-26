@@ -35,6 +35,7 @@ public class Manager {
         try {
             io.grpc.Server managerServer = NettyServerBuilder
                     .forAddress(new InetSocketAddress(managerIpAddress, managerPort))
+                    // .forPort(managerPort)
                     .addService(new SerVectorService(serviceVectors))
                     .addService(new ClientService(serviceVectors))
                     .build()

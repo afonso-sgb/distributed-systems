@@ -18,6 +18,7 @@ public class TPLMServer {
 
         Server server = NettyServerBuilder
                 .forAddress(new InetSocketAddress(zkHost, port))
+                //.forPort(port)
                 .addService(new TPLMServiceImpl(zkHost))
                 .build();
 

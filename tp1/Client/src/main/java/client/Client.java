@@ -42,6 +42,12 @@ public class Client {
         getAllSevers();
         System.out.println("Servers: " + allServers);
 
+
+        if(allServers.isEmpty()){
+            System.out.println("There are no SerVectors available. Ending task.");
+            return ;
+        }
+
         MyID = getTransactionID();
 
         System.out.println("My ID is: " + MyID);
@@ -59,19 +65,17 @@ public class Client {
             int newValue = valueRead - 100;
             boolean writeSuccess = sendWrite(serverIP, serverPort, pos1, newValue);
             if(!writeSuccess) sendWrite(serverIP, serverPort, pos1, newValue);
-            System.out.println("Write success pos1: " + writeSuccess);
 
             valueRead = sendRead(serverIP, serverPort, pos2);
             newValue = valueRead + 100;
             writeSuccess = sendWrite(serverIP, serverPort, pos2, newValue);
             if(!writeSuccess) sendWrite(serverIP, serverPort, pos2, newValue);
 
-            System.out.println("Write success pos2: " + writeSuccess);
 
         }
 
 
-        System.out.println("Transactions commited: " + terminateTransaction());
+        System.out.println("Transactions commited: " + terminateTransaction() + " for client: " + MyID);
 
     }
 
