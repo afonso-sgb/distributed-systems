@@ -1,7 +1,9 @@
 package manager;
 
 import io.grpc.ServerBuilder;
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,13 +33,13 @@ public class Manager {
 
     private static void startManager() {
         try {
-            io.grpc.Server managerServer = ServerBuilder
-                    .forPort(managerPort)
+            io.grpc.Server managerServer = NettyServerBuilder
+                    .forAddress(new InetSocketAddress(managerIpAddress, managerPort))
                     .addService(new SerVectorService(serviceVectors))
                     .addService(new ClientService(serviceVectors))
-                    .build();
+                    .build()
+                    .start();
 
-            managerServer.start();
             System.out.println("Manager up!\nAddress: "+ managerIpAddress + "\nListening on Port: " + managerPort);
 
             managerServer.awaitTermination();

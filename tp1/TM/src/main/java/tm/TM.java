@@ -5,12 +5,14 @@ import clienttm.Clienttmcontract.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.ServerBuilder;
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 import io.grpc.stub.StreamObserver;
 import tmservector.TMSerVectorContractGrpc;
 import tmservector.Tmservectorcontract;
 import tplm.TPLMProto;
 import tplm.TPLMServiceGrpc;
 
+import java.net.InetSocketAddress;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.UUID;
@@ -18,8 +20,8 @@ import java.util.UUID;
 class TM {
     private static String TMIpAddress;
     private static int TMPort;
-    private static String TPLM_IP = "host.containers.internal";
-    private static int TPLM_PORT = 6000;
+    private static String TPLM_IP;
+    private static int TPLM_PORT;
 
     private static Map<String, List<String>> clientsAndServers = new HashMap<>();
     private static Map<String, Set<String>> clientsAndResources = new ConcurrentHashMap<>();
@@ -30,10 +32,7 @@ class TM {
     }
 
     private static void getAddress(String[] args) throws Exception {
-        if (args.length == 2) {
-            TMIpAddress = args[0];
-            TMPort = Integer.parseInt(args[1]);
-        } else if (args.length == 4) {
+        if (args.length == 4) {
             TMIpAddress = args[0];
             TMPort = Integer.parseInt(args[1]);
             TPLM_IP = args[2];
@@ -45,8 +44,8 @@ class TM {
 
     private static void startTM() {
         try {
-            io.grpc.Server managerServer = ServerBuilder
-                    .forPort(TMPort)
+            io.grpc.Server managerServer = NettyServerBuilder
+                    .forAddress(new InetSocketAddress(TMIpAddress, TMPort))
                     .addService(new TMClient())
                     .addService(new TMSerVector())
                     .build();

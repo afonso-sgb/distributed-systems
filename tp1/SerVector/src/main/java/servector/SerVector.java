@@ -1,10 +1,12 @@
 package servector;
 
 import io.grpc.ServerBuilder;
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 import managerservectorstubs.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -42,7 +44,7 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
         ManagerSerVectorServiceGrpc.ManagerSerVectorServiceBlockingStub stub = ManagerSerVectorServiceGrpc.newBlockingStub(channel);
 
         SerVectorAddress address = SerVectorAddress.newBuilder()
-                .setIp("localhost")
+                .setIp(serviceVectorIpAddress)
                 .setPort(serviceAddressPort)
                 .build();
 
@@ -54,14 +56,14 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
 
     private static void startServiceVector() {
         try {
-            io.grpc.Server server = ServerBuilder
-                    .forPort(serviceAddressPort)
+            io.grpc.Server server = NettyServerBuilder
+                    .forAddress(new InetSocketAddress(serviceVectorIpAddress, serviceAddressPort))
                     .addService(new ClientService())
                     .addService(new TMService())
                     .build();
 
             server.start();
-            System.out.println("SerVector up!\nListening on Port: " + serviceAddressPort);
+            System.out.println("SerVector up!\nListening on: "+serviceVectorIpAddress+":"+serviceAddressPort);
             server.awaitTermination();
 
         } catch (Exception ex) {
@@ -71,12 +73,12 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
 
     private static void getAddress(String[] args) throws Exception {
         if (args.length != 6) {
-            System.out.println("Usage: <ServiceVectorIP> <ServiceVectorPort> <managerIP> <managerPort> <TMIP> <TMPort>");
+            System.err.println("ERROR! Invalid arguments. Expected usage: <ServiceVectorIP> <ServiceVectorPort> <managerIP> <managerPort> <TMIP> <TMPort>");
             System.exit(1);
         }
 
-        serviceVectorIpAddress = args[0];
         try {
+            serviceVectorIpAddress = args[0];
             serviceAddressPort = Integer.parseInt(args[1]);
             managerIP = args[2];
             managerPort = Integer.parseInt(args[3]);
@@ -138,7 +140,7 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
                 responseObserver.onCompleted();
             }
 
-            alertTM(clientID, "host.containers.internal", serviceAddressPort);
+            alertTM(clientID, serviceVectorIpAddress, serviceAddressPort);
             System.out.println("Current vector after write: " + tmp_vector.toString());
         }
 
@@ -148,7 +150,7 @@ public class SerVector extends ManagerSerVectorServiceGrpc.ManagerSerVectorServi
             int pos = request.getPosition();
             int value = tmp_vector.get(pos);
 
-            alertTM(clientID, "host.containers.internal", serviceAddressPort);
+            alertTM(clientID, serviceVectorIpAddress, serviceAddressPort);
 
             ClientServectorContractOuterClass.ReadResponse response = ClientServectorContractOuterClass.ReadResponse.newBuilder()
                     .setValue(value)

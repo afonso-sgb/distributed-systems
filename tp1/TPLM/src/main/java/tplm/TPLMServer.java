@@ -2,6 +2,9 @@ package tplm;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
+
+import java.net.InetSocketAddress;
 
 public class TPLMServer {
     public static void main(String[] args) throws Exception {
@@ -13,8 +16,8 @@ public class TPLMServer {
         String zkHost = args[0];
         int port = Integer.parseInt(args[1]);
 
-        Server server = ServerBuilder
-                .forPort(port)
+        Server server = NettyServerBuilder
+                .forAddress(new InetSocketAddress(zkHost, port))
                 .addService(new TPLMServiceImpl(zkHost))
                 .build();
 

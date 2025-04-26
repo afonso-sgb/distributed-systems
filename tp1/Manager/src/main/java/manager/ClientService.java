@@ -15,7 +15,7 @@ public class ClientService extends ClientManagerContractGrpc.ClientManagerContra
     @Override
     public void getAllServers(GetAllServersRequest servectorRequest, StreamObserver<GetAllServersResponse> responseObserver) {
 
-        System.out.println("Sending to client, all active service vector!");
+        System.out.println("Sending to client, all active service vectors!");
 
         GetAllServersResponse.Builder responseBuilder = GetAllServersResponse.newBuilder();
 

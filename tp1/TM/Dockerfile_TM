@@ -1,0 +1,14 @@
+# Etapa final: runtime apenas com Java
+FROM openjdk:21-jdk-slim
+
+#Instalar ferramentas 
+RUN apt-get update && apt-get install -y iproute2 iputils-ping && apt-get clean
+
+# Diretório de trabalho no container
+WORKDIR /app
+
+# Copia apenas o jar empacotado fora do container
+COPY TM-1.0-jar-with-dependencies.jar app.jar
+
+# Comando de arranque, espera os argumentos: IP e Porto
+ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -23,7 +23,7 @@ public class SerVectorService extends ManagerSerVectorServiceGrpc.ManagerSerVect
         responseObserver.onNext(response);
         responseObserver.onCompleted();
 
-        this.serviceVectors.add(new Server("localhost", port));
+        this.serviceVectors.add(new Server(ip, port));
         System.out.println("Current vectors: " + serviceVectors);
     }
 
